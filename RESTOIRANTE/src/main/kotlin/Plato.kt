@@ -1,5 +1,3 @@
-import java.lang.IllegalArgumentException
-
 class Plato(nombre: String, precio: Double, tiempoPreparacion: Int, var ingredientes: MutableList<String>) {
 
     var nombre: String = nombre
@@ -35,7 +33,6 @@ class Plato(nombre: String, precio: Double, tiempoPreparacion: Int, var ingredie
     }
 
     override fun toString(): String {
-        return "$nombre ($tiempoPreparacion min.) -> ${precio}€ ($ingredientes)"
+        return "$nombre ($tiempoPreparacion min.) -> ${precio}€ (${ingredientes.joinToString(",")})"
     }
 }
-//a

@@ -1,6 +1,7 @@
-class Pedido(val numero: Int,var platos: MutableList<Plato>,val estado: String) {
+class Pedido(var estado: String = "Pendiente") {
 
-    val id: Int = contPedidos
+    val numero: Int = contPedidos
+    var platos = mutableListOf<Plato>()
 
     init {
         contPedidos ++
@@ -24,16 +25,24 @@ class Pedido(val numero: Int,var platos: MutableList<Plato>,val estado: String) 
         }
     }
 
-    fun calcularPrecio(){
-
+    fun calcularPrecio():Double{
+        var total = 0.0
+        for(plato in platos){
+            total += plato.precio
+        }
+        return total
     }
 
-    fun calcularTiempo(){
-
+    fun calcularTiempo():Int{
+        var total = 0
+        for(plato in platos){
+            total += plato.tiempoPreparacion
+        }
+        return total
     }
 
     override fun toString(): String {
-        return super.toString()
+        platos.forEach{ println(it)}
+        return "Estado: $estado"
     }
 }
-//a
